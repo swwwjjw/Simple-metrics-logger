@@ -100,10 +100,28 @@ int main() {
 	try {
 		//Имитируем работу, инициализируем менеджер
 		Manager manager("metrics.txt");
+
 		//Инициализируем метрики
-		manager.createMetric<int>("HTTP requests RPS");
-		manager.createMetric<int>("CPU temperature");
 		manager.createMetric<double>("CPU");
+		manager.createMetric<int>("HTTP requests RPS");
+
+		//Добавляем значения метрик
+		manager.setValue<double>("CPU", 0.97);
+		manager.setValue<int>("HTTP requests RPS", 42);
+
+		//Логируем метрики
+		manager.logMetrics();
+
+		//Добавляем значения метрик
+		manager.setValue<double>("CPU", 1.12);
+		manager.setValue<int>("HTTP requests RPS", 30);
+
+		//Логируем метрики
+		manager.logMetrics();
+
+		//Инициализируем метрику
+		manager.createMetric<int>("CPU temperature");
+
 		for (int i = 0; i < 3; i++) {
 			//Добавляем значения метрик
 			manager.setValue<double>("CPU", 0.5 + i * 0.1);
@@ -112,11 +130,14 @@ int main() {
 			//Логируем метрики
 			manager.logMetrics();
 		}
+
 		//Удаляем ненужные метрики
 		manager.deleteMetric("CPU");
 		manager.deleteMetric("CPU temperature");
+
 		//Добавляем значение метрике после обнуления
 		manager.addValue<int>("HTTP requests RPS", 1);
+
 		//Логируем метрику
 		manager.logMetrics();
 	}
