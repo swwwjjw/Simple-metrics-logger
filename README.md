@@ -14,7 +14,7 @@
 Пример логов:<br>
 2025-06-14 15:00:00.123 "CPU" 0.50 "HTTP requests RPS" 10 "CPU temperature" 50<br>
 2025-06-14 15:00:01.123 "CPU" 0.60 "HTTP requests RPS" 12 "CPU temperature" 52<br>
-2025-06-14 15:00:02.123 "CPU" 0.70 "HTTP requests RPS" 14 "CPU temperature" 54<br>
+2025-06-14 15:00:02.123 0.70 "HTTP requests RPS" 14 "CPU temperature" 54<br>
 2025-06-14 15:00:03.123 "HTTP requests RPS" 1
 
 Пример использования:
